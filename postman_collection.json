@@ -1,0 +1,140 @@
+{
+  "info": {
+    "name": "Reto 2 — Microservicio MVC",
+    "description": "Colección completa de endpoints para el microservicio Node.js + Express + SQLite",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "base_url", "value": "http://localhost:3000", "type": "string" }
+  ],
+  "item": [
+    {
+      "name": "Health & Info",
+      "item": [
+        {
+          "name": "Healthcheck",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/health",
+            "description": "Verifica que el servicio esté activo"
+          }
+        },
+        {
+          "name": "Raíz (info del servicio)",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/",
+            "description": "Info general y endpoints disponibles"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Listar usuarios",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/users"
+          }
+        },
+        {
+          "name": "Ver usuario por ID",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/users/1"
+          }
+        },
+        {
+          "name": "Crear usuario",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/api/users",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Nuevo Usuario\",\n  \"email\": \"nuevo@bia.app\",\n  \"role\": \"user\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Editar usuario",
+          "request": {
+            "method": "PUT",
+            "url": "{{base_url}}/api/users/1",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Nombre Actualizado\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Eliminar usuario",
+          "request": {
+            "method": "DELETE",
+            "url": "{{base_url}}/api/users/1"
+          }
+        },
+        {
+          "name": "Productos de un usuario",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/users/1/products"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Products",
+      "item": [
+        {
+          "name": "Listar productos",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/products"
+          }
+        },
+        {
+          "name": "Ver producto por ID",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/products/1"
+          }
+        },
+        {
+          "name": "Crear producto",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/api/products",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Nuevo Producto\",\n  \"description\": \"Descripción del producto\",\n  \"price\": 59.99,\n  \"stock\": 20,\n  \"user_id\": 1\n}"
+            }
+          }
+        },
+        {
+          "name": "Editar producto",
+          "request": {
+            "method": "PUT",
+            "url": "{{base_url}}/api/products/1",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"price\": 79.99,\n  \"stock\": 15\n}"
+            }
+          }
+        },
+        {
+          "name": "Eliminar producto",
+          "request": {
+            "method": "DELETE",
+            "url": "{{base_url}}/api/products/1"
+          }
+        }
+      ]
+    }
+  ]
+}
