@@ -1,5 +1,6 @@
 // src/app.js  —  Microservicio listo para despliegue
 const express       = require("express");
+const cors          = require("cors");
 const env           = require("./config/env");
 const { runMigrations } = require("./config/migrations");
 const userRoutes    = require("./routes/userRoutes");
@@ -12,6 +13,7 @@ runMigrations();
 const app = express();
 
 // ── Middlewares globales ──────────────────────────────────────────────────────
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

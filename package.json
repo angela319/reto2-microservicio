@@ -12,18 +12,31 @@
   },
   "jest": {
     "testEnvironment": "node",
-    "testMatch": ["**/tests/**/*.test.js"],
-    "collectCoverageFrom": ["src/**/*.js"],
+    "testMatch": [
+      "**/tests/**/*.test.js"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ],
     "coverageThreshold": {
-      "global": { "lines": 70 }
+      "global": {
+        "lines": 70
+      }
     }
   },
-  "keywords": ["microservicio", "mvc", "rest", "express", "sqlite"],
+  "keywords": [
+    "microservicio",
+    "mvc",
+    "rest",
+    "express",
+    "sqlite"
+  ],
   "author": "Angela Herrera",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
     "better-sqlite3": "^12.9.0",
+    "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^5.2.1"
   },
